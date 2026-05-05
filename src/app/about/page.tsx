@@ -4,11 +4,20 @@ import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
-  { label: "PROJECTS", href: "/projects" },
   { label: "ABOUT", href: "/about", active: true },
-  { label: "EXPERTISE", href: "/#expertise" },
-  { label: "DNA", href: "/#dna" },
-  { label: "COLLABORATE", href: "/#collaborate" },
+  { label: "PROJECTS", href: "/projects" },
+  { label: "ZURAVERSE", href: "http://zuraverse.xyz/", external: true },
+  { label: "MERCH STORE", href: "https://www.hippiealiens.com/", external: true },
+];
+
+const TEAM = [
+  { name: "Abhishek Sagar", role: "Founder and Creative Technologist", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" },
+  { name: "Sunniy Khan", role: "Co-Founder and CG Generalist", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop" },
+  { name: "Mohit Raj", role: "Video Producer", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" },
+  { name: "Hamee", role: "HR Lead", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" },
+  { name: "Suraj Gupta", role: "Full Stack Developer", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" },
+  { name: "Neha Mahto", role: "Social Media Manager", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" },
+  { name: "Nitin Jiwal", role: "Project Manager (Event Sales)", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop" }
 ];
 
 export default function AboutPage() {
@@ -26,136 +35,154 @@ export default function AboutPage() {
 
   return (
     <main className="about-page">
-      {/* Navigation */}
-      <nav className="hero-nav" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, padding: '2rem 3rem' }}>
-        <a href="/" className="hero-logo" style={{ textDecoration: 'none', color: 'var(--hero-fg)' }}>ZURA STUDIO</a>
+      {/* NAV */}
+      <nav className="hero-nav">
+        <div className="hero-logo">ZURA STUDIO</div>
+
         <div className="hero-nav-links">
-          {NAV_LINKS.map(link => (
-            <a 
-              key={link.label} 
-              href={link.href} 
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
               className={link.active ? "active" : ""}
-              style={{ color: 'var(--hero-fg)', opacity: link.active ? 1 : 0.7 }}
+              {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
             >
               {link.label}
             </a>
           ))}
         </div>
+
         <div className="hero-nav-actions">
           <button
             className="theme-toggle-minimal"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             aria-label="Toggle theme"
-            style={{ color: 'var(--hero-fg)' }}
           >
             {theme === "light" ? "☾" : "☀"}
           </button>
+          <a href="/contact" className="hero-contact-btn">
+            CONTACT
+          </a>
         </div>
       </nav>
 
       {/* SECTION 1 — HERO */}
-      <section className="about-hero" style={{ height: '80vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-        <div className="about-hero-bg" style={{ 
-          position: 'absolute', 
-          inset: 0, 
-          backgroundImage: "url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2000&auto=format&fit=crop')", 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center',
-          filter: 'grayscale(1) brightness(0.3)'
-        }} />
-        <div className="about-hero-content" style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '1000px', padding: '0 2rem' }}>
-          <p className="ip-tag" style={{ color: '#ffffff', marginBottom: '2rem' }}><span>Architects of Imagination</span></p>
-          <h1 className="ip-title" style={{ color: '#ffffff', fontSize: 'clamp(3rem, 8vw, 6.5rem)', lineHeight: 1.1 }}>
-            <span>We Build Worlds,</span><br/><span>Not Just Content</span>
+      <section className="about-hero-new">
+        <div className="about-hero-new-content">
+          <h1 className="about-hero-title">
+            We Build Worlds,<br/>Not Just Content
           </h1>
-          <p className="culture-section-subtext" style={{ color: '#ffffff', opacity: 0.8, fontSize: '1.2rem', marginTop: '2rem', maxWidth: '600px', margin: '2rem auto 0' }}>
+          <p className="about-hero-subtext">
             Zura Studio develops original narrative universes across film, interactive experiences, and culture.
           </p>
         </div>
       </section>
 
-      {/* SECTION 2 — PHILOSOPHY (CRITICAL) */}
-      <section className="philosophy-section" style={{ padding: '12rem 3rem', background: 'var(--bg)' }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 className="philosophy-heading">
-            Where Technology,<br/>Art and Magic Collide
-          </h2>
-          <p className="philosophy-body">
-            ZURA STUDIO IS A CREATIVE HUB WHERE DESIGN MEETS INNOVATION. WE SPECIALIZE IN DELIVERING HIGH-QUALITY DIGITAL EXPERIENCES THAT BLEND TECHNOLOGY, STORYTELLING, AND AESTHETICS. OUR TEAM IS PASSIONATE ABOUT CRAFTING VISUALS AND STRATEGIES THAT HELP BRANDS STAND OUT AND CONNECT WITH THEIR AUDIENCE.
-          </p>
+      {/* SECTION 2 — PHILOSOPHY */}
+      <section className="philosophy-section-new">
+        <div className="philosophy-container">
+          <div className="philosophy-list-item">
+            <span className="philosophy-item-num">01 / PHILOSOPHY</span>
+            <h3 className="philosophy-item-title">Storytelling as worldbuilding</h3>
+            <p className="philosophy-item-desc">We do not just write scripts; we architect entire universes with deep lore, consistent rules, and interconnected histories that invite exploration.</p>
+          </div>
+          <div className="philosophy-list-item">
+            <span className="philosophy-item-num">02 / PHILOSOPHY</span>
+            <h3 className="philosophy-item-title">Culture over content</h3>
+            <p className="philosophy-item-desc">We prioritize creating enduring cultural moments and dedicated communities rather than producing disposable, algorithmically-driven content.</p>
+          </div>
+          <div className="philosophy-list-item">
+            <span className="philosophy-item-num">03 / PHILOSOPHY</span>
+            <h3 className="philosophy-item-title">Long-term myth creation</h3>
+            <p className="philosophy-item-desc">Our narratives are designed to evolve and expand over years, building modern myths that resonate across generations and mediums.</p>
+          </div>
+          <div className="philosophy-list-item" style={{ borderBottom: 'none' }}>
+            <span className="philosophy-item-num">04 / PHILOSOPHY</span>
+            <h3 className="philosophy-item-title">Interdisciplinary creation</h3>
+            <p className="philosophy-item-desc">By seamlessly blending film, games, and live events, we break down medium barriers to craft truly immersive and participatory experiences.</p>
+            <span className="philosophy-item-sub">(FILM + GAMES + PERFORMANCE)</span>
+          </div>
         </div>
       </section>
 
       {/* SECTION 3 — WHAT WE DO */}
-      <section className="capabilities-section" style={{ padding: '0 3rem 12rem', background: 'var(--bg)' }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <div className="culture-header">
-            <h2 className="culture-section-heading"><span>What We Do</span></h2>
+      <section className="whatwedo-section">
+        <div className="whatwedo-header">
+          <div className="whatwedo-label">WHAT WE DO</div>
+        </div>
+        <div className="whatwedo-grid">
+          <div className="whatwedo-card">
+            <h3 className="whatwedo-card-title">Narrative</h3>
+            <span className="whatwedo-card-sub">(FILMS, SERIES, WRITING)</span>
+            <p className="whatwedo-card-desc">We craft compelling story arcs, deep lore, and character journeys that serve as the narrative anchor for our expansive universes.</p>
           </div>
-          <div className="capabilities-grid">
-            <div className="capability-item">
-              <h3 className="capability-title">Narrative</h3>
-              <p className="capability-desc">Crafting cinematic journeys that span across traditional cinema and episodic storytelling, focused on deep lore and mythic structures (films, series, writing).</p>
-            </div>
-            <div className="capability-item">
-              <h3 className="capability-title">Interactive</h3>
-              <p className="capability-desc">Building living ecosystems and gameplay mechanics that invite users to not just watch, but inhabit the worlds we create (games, systems).</p>
-            </div>
-            <div className="capability-item">
-              <h3 className="capability-title">Cultural</h3>
-              <p className="capability-desc">Bridging the gap between the digital and physical through immersive performances and a vibrant community of regional creators (events, performances, community).</p>
-            </div>
+          <div className="whatwedo-card">
+            <h3 className="whatwedo-card-title">Interactive</h3>
+            <span className="whatwedo-card-sub">(GAMES, SYSTEMS)</span>
+            <p className="whatwedo-card-desc">Building immersive digital environments and responsive systems where audiences transition from spectators to active participants.</p>
+          </div>
+          <div className="whatwedo-card">
+            <h3 className="whatwedo-card-title">Cultural</h3>
+            <span className="whatwedo-card-sub">(EVENTS, PERFORMANCES, COMMUNITY)</span>
+            <p className="whatwedo-card-desc">Bridging the gap between the screen and reality through live, shared experiences that foster dedicated communities.</p>
           </div>
         </div>
       </section>
 
-      {/* SECTION 4 — TEAM / COLLECTIVE */}
-      <section className="team-section" id="team">
-        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <div className="culture-header" style={{ marginBottom: '5rem' }}>
-            <h2 className="culture-section-heading" style={{ fontFamily: 'var(--font-serif)', textTransform: 'none', letterSpacing: '0' }}>The Architects</h2>
-          </div>
-          
-          <div className="team-grid">
-            {/* ELENA */}
-            <div className="team-member">
-              <div className="team-portrait-wrap">
-                <img src="/team/elena.png" alt="Elena Rostova" className="team-portrait" />
-              </div>
-              <div className="team-info">
-                <h3 className="team-name">Elena Rostova</h3>
-                <p className="team-role">Visionary Director</p>
-              </div>
-            </div>
-
-            {/* JULIAN */}
-            <div className="team-member">
-              <div className="team-portrait-wrap">
-                <img src="/team/julian.png" alt="Julian Vance" className="team-portrait" />
-              </div>
-              <div className="team-info">
-                <h3 className="team-name">Julian Vance</h3>
-                <p className="team-role">Lead Technologist</p>
-              </div>
-            </div>
-
-            {/* SARAH */}
-            <div className="team-member">
-              <div className="team-portrait-wrap">
-                <img src="/team/sarah.png" alt="Sarah Lin" className="team-portrait" />
-              </div>
-              <div className="team-info">
-                <h3 className="team-name">Sarah Lin</h3>
-                <p className="team-role">Narrative Architect</p>
+      {/* SECTION 4 — THE ARCHITECTS */}
+      <section className="architects-section" id="team">
+        <div className="architects-heading-container">
+          <h2 className="architects-heading">The Architects</h2>
+          <p className="architects-subheading">A collective of filmmakers, artists, technologists, and performers.</p>
+        </div>
+        <div className="architects-rotator">
+          <div className="filmstrip-border" />
+          <div className="architects-section-inner">
+            <div className="architects-slider-container">
+              <div className="architects-slider">
+                {[...TEAM, ...TEAM].map((member, i) => (
+                  <div className="architect-card" key={i}>
+                    <div className="architect-portrait-wrap">
+                      <img src={member.img} alt={member.name} className="architect-portrait" />
+                    </div>
+                    <div className="architect-info">
+                      <h3 className="architect-name">{member.name}</h3>
+                      <span className="architect-role">{member.role}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
+          <div className="filmstrip-border" />
         </div>
       </section>
 
-      {/* Footer / CTA */}
-      <footer style={{ padding: '5rem 3rem', background: 'var(--section-bg)', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
-        <p className="muted" style={{ fontSize: '0.8rem', letterSpacing: '0.2em' }}>© 2026 ZURA STUDIO. ALL RIGHTS RESERVED.</p>
+      {/* ============================================================
+          FOOTER
+      ============================================================ */}
+      <footer className="site-footer">
+        <div className="footer-links">
+          <a href="https://www.instagram.com/zurastudio_/" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/zuraverse" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://x.com/Zuraverse" target="_blank" rel="noreferrer">Twitter</a>
+          <a href="https://www.youtube.com/@zuraverse/" target="_blank" rel="noreferrer">YouTube</a>
+          <a href="/contact">Contact Us</a>
+        </div>
+        <div className="footer-right">
+          <span>ZURASTUDIO © 2025</span>
+          <button
+            className="theme-toggle"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            aria-label="Toggle colour theme"
+          >
+            {theme === "light" ? (
+              <>Dark Mode <span>☾</span></>
+            ) : (
+              <>Light Mode <span>☀</span></>
+            )}
+          </button>
+        </div>
       </footer>
     </main>
   );

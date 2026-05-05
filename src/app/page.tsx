@@ -39,24 +39,23 @@ const IP_SLIDES = [
     tag: "Zura Original IP",
     title: "Milkyland",
     cta: "Explore World",
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1800&auto=format&fit=crop",
+    image: "/Images/Milkyland.webp",
   },
   {
     id: 2,
     tag: "Zura Original IP",
     title: "Daturavad",
     cta: "Discover Story",
-    image: "https://images.unsplash.com/photo-1504333638930-c8787321eee0?q=80&w=1800&auto=format&fit=crop",
+    image: "/Images/Daturavad.webp",
   },
 ];
 
 const NAV_LINKS = [
   { label: "HOME", href: "/", active: true },
-  { label: "PROJECTS", href: "/projects", active: false },
   { label: "ABOUT", href: "/about", active: false },
-  { label: "EXPERTISE", href: "/#expertise", active: false },
-  { label: "DNA", href: "/#dna", active: false },
-  { label: "COLLABORATE", href: "/#collaborate", active: false },
+  { label: "PROJECTS", href: "/projects", active: false },
+  { label: "ZURAVERSE", href: "http://zuraverse.xyz/", active: false, external: true },
+  { label: "MERCH STORE", href: "https://www.hippiealiens.com/", active: false, external: true },
 ];
 
 /* ================================================================
@@ -113,6 +112,7 @@ export default function Home() {
                 key={link.label}
                 href={link.href}
                 className={link.active ? "active" : ""}
+                {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
               >
                 {link.label}
               </a>
@@ -127,7 +127,7 @@ export default function Home() {
             >
               {theme === "light" ? "☾" : "☀"}
             </button>
-            <a href="#contact" className="hero-contact-btn">
+            <a href="/contact" className="hero-contact-btn">
               CONTACT
             </a>
           </div>
@@ -236,9 +236,16 @@ export default function Home() {
           SECTION 4 — ORIGINAL ZURA IP SLIDER
       ============================================================ */}
       <section className="ip-section" id="ip">
-        <div className="culture-header centered">
-          <h2 className="culture-section-heading">Original IP</h2>
-          <p className="culture-section-subtext">Exploring narrative frontiers through high-fidelity, original universes built from the ground up.</p>
+        <div className="ip-header">
+          <div className="ip-header-left">
+            <h2 className="culture-section-heading">Zura Originals</h2>
+            <p className="culture-section-subtext">Exploring narrative frontiers through high-fidelity, original universes built from the ground up.</p>
+          </div>
+          <div className="ip-header-right">
+            <a href="/projects" className="view-all-btn">
+              View All Projects &nbsp;→
+            </a>
+          </div>
         </div>
         <div className="ip-slider">
           {IP_SLIDES.map((slide, i) => (
@@ -383,10 +390,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="bento-card">
-                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop')" }} />
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/Maxfox.png')" }} />
                   <div className="bento-card-content">
-                    <span className="bento-label"><span>366 Pie</span></span>
-                    <p className="bento-desc"><span>Business strategy and management consulting for creative ventures.</span></p>
+                    <span className="bento-label"><span>Maxfox Studios</span></span>
+                    <p className="bento-desc"><span>An indie studio run by Mohit Raj.</span></p>
                   </div>
                 </div>
               </div>
@@ -423,7 +430,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=1200&auto=format&fit=crop')" }} />
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/ArkaJain.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>Arka Jain</span></span>
                   <p className="bento-desc"><span>College partner fostering local talent and technical education.</span></p>
@@ -444,14 +451,14 @@ export default function Home() {
                 </div>
               </div>
               <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1525921429624-479b6a29d840?q=80&w=800&auto=format&fit=crop')" }} />
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/TheCircle.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>The Circle</span></span>
                   <p className="bento-desc"><span>Community Club for hosting open mics, standups, Live Shows and more.</span></p>
                 </div>
               </div>
               <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1449247704737-59c72023b2b2?q=80&w=800&auto=format&fit=crop')" }} />
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/CyclistCafe.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>Cyclist.Cafe</span></span>
                   <p className="bento-desc"><span>Coffee cafe for Ranchi's vibrant cyclist community and entrepreneurship building.</span></p>
@@ -483,11 +490,11 @@ export default function Home() {
       ============================================================ */}
       <footer className="site-footer">
         <div className="footer-links">
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter</a>
-          <a href="#">YouTube</a>
-          <a href="#">Contact Us</a>
+          <a href="https://www.instagram.com/zurastudio_/" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/zuraverse" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://x.com/Zuraverse" target="_blank" rel="noreferrer">Twitter</a>
+          <a href="https://www.youtube.com/@zuraverse/" target="_blank" rel="noreferrer">YouTube</a>
+          <a href="/contact">Contact Us</a>
         </div>
         <div className="footer-right">
           <span>ZURASTUDIO © 2025</span>
