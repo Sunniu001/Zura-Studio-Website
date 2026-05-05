@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const NAV_LINKS = [
+const NAV_LINKS: Array<{ label: string; href: string; active?: boolean; external?: boolean }> = [
   { label: "HOME", href: "/" },
   { label: "ABOUT", href: "/about" },
   { label: "PROJECTS", href: "/projects" },
