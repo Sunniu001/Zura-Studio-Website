@@ -24,52 +24,7 @@ const CLIENT_NAMES = [
   "NHAI", "Flocard", "Indian Railways", "Del Monte",
 ];
 
-const projects = [
-  {
-    id: 1,
-    title: "Ananda Ranchi Smart City 3D Walkthrough | Archviz",
-    category: "ARCH VISUALIZATION",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1400&auto=format&fit=crop",
-    barHeights: [8, 14, 10, 16, 12],
-  },
-  {
-    id: 2,
-    title: "Ganga Bridge Sahebganj (NHAI) | Archviz",
-    category: "ARCH VISUALIZATION",
-    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=1400&auto=format&fit=crop",
-    barHeights: [10, 8, 16, 12, 14],
-  },
-  {
-    id: 3,
-    title: "Riyasat Resort 3D Walkthrough | Archviz",
-    category: "ARCH VISUALIZATION",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1400&auto=format&fit=crop",
-    barHeights: [12, 16, 8, 14, 10],
-  },
-  {
-    id: 4,
-    title: "Chas To Ramgarh Expressway (NHAI) | Archviz",
-    category: "ARCH VISUALIZATION",
-    image: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=1400&auto=format&fit=crop",
-    barHeights: [14, 10, 12, 8, 16],
-  },
-  {
-    id: 5,
-    title: "Rouge Pixxel Office Walkthrough | Archviz",
-    category: "ARCH VISUALIZATION",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1400&auto=format&fit=crop",
-    barHeights: [8, 16, 10, 14, 12],
-  },
-  {
-    id: 6,
-    title: "Palna Redevelopment Project Walkthrough | Archviz",
-    category: "ARCH VISUALIZATION",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1400&auto=format&fit=crop",
-    barHeights: [16, 12, 8, 10, 14],
-  },
-];
-
-const CATEGORIES = ["ALL", "ARCH VISUALIZATION", "FILM PRODUCTION", "PROMOTIONS", "ANIMATION"];
+// Collective data updated below in component
 
 const IP_SLIDES = [
   {
@@ -96,11 +51,12 @@ const IP_SLIDES = [
 ];
 
 const NAV_LINKS = [
-  { label: "HOME", href: "#", active: true },
-  { label: "PROJECTS", href: "#projects", active: false },
-  { label: "EXPERTISE", href: "#expertise", active: false },
-  { label: "DNA", href: "#dna", active: false },
-  { label: "COLLABORATE", href: "#collaborate", active: false },
+  { label: "HOME", href: "/", active: true },
+  { label: "PROJECTS", href: "/projects", active: false },
+  { label: "ABOUT", href: "/about", active: false },
+  { label: "EXPERTISE", href: "/#expertise", active: false },
+  { label: "DNA", href: "/#dna", active: false },
+  { label: "COLLABORATE", href: "/#collaborate", active: false },
 ];
 
 /* ================================================================
@@ -110,7 +66,7 @@ export default function Home() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [ipSlide, setIpSlide] = useState(0);
-  const [cultureTab, setCultureTab] = useState<"culture" | "collaborators" | "community">("culture");
+  const [cultureTab, setCultureTab] = useState<"culture" | "partners" | "collective">("culture");
 
   useEffect(() => {
     if (window.matchMedia?.("(prefers-color-scheme: dark)").matches) {
@@ -129,11 +85,6 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(timer);
   }, [ipSlide]);
-
-  const filtered =
-    activeCategory === "ALL"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
 
   return (
     <main>
@@ -168,9 +119,18 @@ export default function Home() {
             ))}
           </div>
 
-          <a href="#contact" className="hero-contact-btn">
-            CONTACT
-          </a>
+          <div className="hero-nav-actions">
+            <button
+              className="theme-toggle-minimal"
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? "☾" : "☀"}
+            </button>
+            <a href="#contact" className="hero-contact-btn">
+              CONTACT
+            </a>
+          </div>
         </nav>
 
         {/* HEADLINE + CTAs */}
@@ -182,7 +142,7 @@ export default function Home() {
             <a href="#projects" className="btn-explore">
               WATCH EPISODE 1
             </a>
-            <a href="#about" className="btn-dna">
+            <a href="/about" className="btn-dna">
               ABOUT US
             </a>
           </div>
@@ -201,13 +161,13 @@ export default function Home() {
       ============================================================ */}
       <section className="paradigm-section" id="expertise">
         {/* Header */}
-        <div className="paradigm-header">
-          <h2 className="paradigm-heading">
-            The Transmedia<br />Approach
+        <div className="culture-header">
+          <h2 className="culture-section-heading">
+            The Transmedia Approach
           </h2>
-          <p className="paradigm-sub">
+          <p className="culture-section-subtext">
             Zura Studio is a transmedia IP Studio, creating original universes
-            through film, interactive experiences, and culture
+            through film, interactive experiences, and culture.
           </p>
         </div>
 
@@ -224,8 +184,8 @@ export default function Home() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
                 <span>01 / Core Paradigm</span>
               </div>
-              <h3 className="paradigm-card-title">World-building</h3>
-              <p className="paradigm-card-body">Constructing intricate, logically consistent universes from the ground up. We develop comprehensive lore, structural physics, and socio-political frameworks that serve as robust foundations for expansive narratives.</p>
+              <h3 className="paradigm-card-title"><span>World-building</span></h3>
+              <p className="paradigm-card-body"><span>Constructing intricate, logically consistent universes from the ground up. We develop comprehensive lore, structural physics, and socio-political frameworks that serve as robust foundations for expansive narratives.</span></p>
             </div>
           </div>
 
@@ -236,8 +196,8 @@ export default function Home() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 <span>02 / Architecture</span>
               </div>
-              <h3 className="paradigm-card-title">IP Development</h3>
-              <p className="paradigm-card-body">Incubating raw concepts into fully realized intellectual properties. We sculpt characters, narrative arcs, and franchise bibles designed for multi-generational relevance and cross-medium adaptation.</p>
+              <h3 className="paradigm-card-title"><span>IP Development</span></h3>
+              <p className="paradigm-card-body"><span>Incubating raw concepts into fully realized intellectual properties. We sculpt characters, narrative arcs, and franchise bibles designed for multi-generational relevance and cross-medium adaptation.</span></p>
               <a href="#projects" className="paradigm-link">VIEW METHODOLOGY →</a>
             </div>
           </div>
@@ -249,8 +209,8 @@ export default function Home() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 <span>03 / Expansion</span>
               </div>
-              <h3 className="paradigm-card-title">Cross-platform<br/>Storytelling</h3>
-              <p className="paradigm-card-body">Orchestrating narratives that transcend a single medium. We design interconnected story webs that unfold across film, interactive media, print, and immersive digital platforms, creating a cohesive user journey.</p>
+              <h3 className="paradigm-card-title"><span>Cross-platform</span><br/><span>Storytelling</span></h3>
+              <p className="paradigm-card-body"><span>Orchestrating narratives that transcend a single medium. We design interconnected story webs that unfold across film, interactive media, print, and immersive digital platforms, creating a cohesive user journey.</span></p>
             </div>
           </div>
 
@@ -264,8 +224,8 @@ export default function Home() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/></svg>
                 <span>04 / Execution</span>
               </div>
-              <h3 className="paradigm-card-title">Digital Production</h3>
-              <p className="paradigm-card-body">State-of-the-art execution leveraging real-time engines, advanced CGI, and immersive web technologies to bring cinematic visions to life with uncompromised fidelity.</p>
+              <h3 className="paradigm-card-title"><span>Digital Production</span></h3>
+              <p className="paradigm-card-body"><span>State-of-the-art execution leveraging real-time engines, advanced CGI, and immersive web technologies to bring cinematic visions to life with uncompromised fidelity.</span></p>
             </div>
           </div>
 
@@ -276,7 +236,10 @@ export default function Home() {
           SECTION 4 — ORIGINAL ZURA IP SLIDER
       ============================================================ */}
       <section className="ip-section" id="ip">
-        <h2 className="ip-section-title">Original IP</h2>
+        <div className="culture-header centered">
+          <h2 className="culture-section-heading">Original IP</h2>
+          <p className="culture-section-subtext">Exploring narrative frontiers through high-fidelity, original universes built from the ground up.</p>
+        </div>
         <div className="ip-slider">
           {IP_SLIDES.map((slide, i) => (
             <div
@@ -289,12 +252,12 @@ export default function Home() {
               <div className="ip-slide-overlay" />
               <div className="ip-slide-content">
                 <div className="ip-slide-left">
-                  <p className="ip-tag">{slide.tag}</p>
-                  <h3 className="ip-title">{slide.title}</h3>
+                  <p className="ip-tag"><span>{slide.tag}</span></p>
+                  <h3 className="ip-title"><span>{slide.title}</span></h3>
                 </div>
                 <div className="ip-slide-right">
                   <a href="#" className="ip-cta">
-                    {slide.cta}
+                    <span>{slide.cta}</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
@@ -345,18 +308,19 @@ export default function Home() {
 
         {/* Section header */}
         <div className="culture-header">
-          <h2 className="culture-section-heading">A Living Creative Ecosystem</h2>
+          <h2 className="culture-section-heading">The Zura Collective</h2>
+          <p className="culture-section-subtext">A growing network of artists, performers, and creators shaping the worlds we build.</p>
         </div>
 
         {/* Tab Bar */}
         <div className="culture-tabs">
-          {(["culture", "collaborators", "community"] as const).map((tab) => (
+          {(["culture", "partners", "collective"] as const).map((tab) => (
             <button
               key={tab}
               className={`culture-tab ${cultureTab === tab ? "active" : ""}`}
-              onClick={() => setCultureTab(tab)}
+              onClick={() => setCultureTab(tab as any)}
             >
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              {tab === "culture" ? "Culture" : tab === "partners" ? "Collaborators" : "Community"}
             </button>
           ))}
         </div>
@@ -366,141 +330,153 @@ export default function Home() {
 
           {/* CULTURE */}
           <div className={`culture-panel ${cultureTab === "culture" ? "active" : ""}`}>
-            <div className="culture-panel-inner">
-              <div className="culture-panel-text">
-                <p className="culture-eyebrow">01 / Culture</p>
-                <h3 className="culture-heading">Cultural<br/>Institutions</h3>
-                <p className="culture-body">
-                  We root our work in the cultural fabric of Jharkhand, collaborating with
-                  institutions that champion regional storytelling, performing arts, and creative
-                  industries at scale.
-                </p>
-                <div className="culture-logos-row">
-                  <div className="static-logo">Jharkhand Film and Theatre Academy</div>
-                  <div className="static-logo">Jharkhand AVGC</div>
-                  <div className="static-logo">Jharkhand Creative</div>
+            <div className="bento-grid">
+              <div className="bento-left">
+                <div className="bento-card bento-fill">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop')" }} />
+                  <div className="bento-card-content">
+                    <span className="bento-label"><span>Jharkhand AVGC</span></span>
+                    <p className="bento-desc"><span>Center of excellence for Animation, Visual Effects, Gaming, and Comics.</span></p>
+                  </div>
                 </div>
               </div>
-              <div className="culture-panel-media">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop"
-                  alt="Culture"
-                  className="culture-img"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* COLLABORATORS */}
-          <div className={`culture-panel ${cultureTab === "collaborators" ? "active" : ""}`}>
-            <div className="culture-panel-inner">
-              <div className="culture-panel-text">
-                <p className="culture-eyebrow">02 / Collaborators</p>
-                <h3 className="culture-heading">Built With<br/>The Best</h3>
-                <p className="culture-body">
-                  We partner with platforms and studios that share our obsession with
-                  quality storytelling and cross-medium reach — amplifying every universe
-                  we create.
-                </p>
-                <div className="culture-logos-row">
-                  <div className="static-logo">Mera TV</div>
-                  <div className="static-logo">366 Pie</div>
+              <div className="bento-right">
+                <div className="bento-card">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=800&auto=format&fit=crop')" }} />
+                  <div className="bento-card-content">
+                    <span className="bento-label"><span>Jharkhand Film Academy</span></span>
+                    <p className="bento-desc"><span>Nurturing the next generation of cinematic storytellers and performers.</span></p>
+                  </div>
                 </div>
-              </div>
-              <div className="culture-panel-media">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
-                  alt="Collaborators"
-                  className="culture-img"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* COMMUNITY */}
-          <div className={`culture-panel ${cultureTab === "community" ? "active" : ""}`}>
-            <div className="culture-panel-inner">
-              <div className="culture-panel-text">
-                <p className="culture-eyebrow">03 / Community</p>
-                <h3 className="culture-heading">Rooted in<br/>Real Places</h3>
-                <p className="culture-body">
-                  Our communities are shaped by the campuses and collectives that live
-                  and breathe creativity every day — co-creators of the worlds we build.
-                </p>
-                <div className="culture-logos-row">
-                  <div className="static-logo">BIT Mesra</div>
-                  <div className="static-logo">Arka Jain</div>
-                  <div className="static-logo">JOCC</div>
-                </div>
-              </div>
-              <div className="culture-panel-media">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop"
-                  alt="Community"
-                  className="culture-img"
-                />
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* ============================================================
-          SECTION 6 — PROJECTS
-      ============================================================ */}
-      <section className="projects-section" id="projects">
-        <nav className="projects-nav" aria-label="Project categories">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              className={activeCategory === cat ? "active" : ""}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </nav>
-
-        <div className="projects-grid">
-          {filtered.map((project) => (
-            <div key={project.id} className="project-card">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="project-image"
-              />
-              <div className="project-overlay">
-                {/* Play icon top-right */}
-                <div className="project-play">
-                  <svg width="12" height="14" viewBox="0 0 12 14" fill="white">
-                    <path d="M1 1l10 6L1 13V1z" />
-                  </svg>
-                </div>
-
-                {/* Title + sound bars */}
-                <div className="project-meta">
-                  <p className="project-title-text">{project.title}</p>
-                  <div className="project-bars">
-                    {project.barHeights.map((h, i) => (
-                      <div
-                        key={i}
-                        className="project-bar"
-                        style={{ height: `${h}px` }}
-                      />
-                    ))}
+                <div className="bento-card">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop')" }} />
+                  <div className="bento-card-content">
+                    <span className="bento-label"><span>Jharkhand Creative</span></span>
+                    <p className="bento-desc"><span>A collaborative hub for regional artists and creative practitioners.</span></p>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+            <div className="bento-cta-row">
+              <a href="#culture" className="collective-cta">Enter the Collective &nbsp;→</a>
+            </div>
+          </div>
+
+          {/* COLLABORATORS */}
+          <div className={`culture-panel ${cultureTab === "partners" ? "active" : ""}`}>
+            <div className="bento-grid">
+              <div className="bento-left">
+                <div className="bento-card bento-fill">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1200&auto=format&fit=crop')" }} />
+                  <div className="bento-card-content">
+                    <span className="bento-label"><span>Mera TV</span></span>
+                    <p className="bento-desc"><span>Emerging Indian OTT platform focusing on hyper-local regional content.</span></p>
+                  </div>
+                </div>
+              </div>
+              <div className="bento-right">
+                <div className="bento-card">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop')" }} />
+                  <div className="bento-card-content">
+                    <span className="bento-label"><span>The Rogue Pixxel</span></span>
+                    <p className="bento-desc"><span>Core technology partner specializing in real-time digital architecture.</span></p>
+                  </div>
+                </div>
+                <div className="bento-card">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop')" }} />
+                  <div className="bento-card-content">
+                    <span className="bento-label"><span>366 Pie</span></span>
+                    <p className="bento-desc"><span>Business strategy and management consulting for creative ventures.</span></p>
+                  </div>
+                </div>
+              </div>
+              <div className="bento-panoramic">
+                <div className="bento-card">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop')" }} />
+                  <div className="bento-card-content">
+                    <span className="bento-label"><span>Target Events</span></span>
+                    <p className="bento-desc"><span>Specialized event management and large-scale live production partner.</span></p>
+                  </div>
+                </div>
+                <div className="bento-card">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop')" }} />
+                  <div className="bento-card-content">
+                    <span className="bento-label"><span>Tribe Tree</span></span>
+                    <p className="bento-desc"><span>Sustainability-focused clothing, textile, and handicraft partner.</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bento-cta-row">
+              <a href="#partners" className="collective-cta">Enter the Collective &nbsp;→</a>
+            </div>
+          </div>
+
+          {/* COMMUNITY */}
+          <div className={`culture-panel ${cultureTab === "collective" ? "active" : ""}`}>
+            <div className="community-grid">
+              <div className="bento-card">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop')" }} />
+                <div className="bento-card-content">
+                  <span className="bento-label"><span>BIT Mesra</span></span>
+                  <p className="bento-desc"><span>Premier University partner for academic and research collaboration.</span></p>
+                </div>
+              </div>
+              <div className="bento-card">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=1200&auto=format&fit=crop')" }} />
+                <div className="bento-card-content">
+                  <span className="bento-label"><span>Arka Jain</span></span>
+                  <p className="bento-desc"><span>College partner fostering local talent and technical education.</span></p>
+                </div>
+              </div>
+              <div className="bento-card">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop')" }} />
+                <div className="bento-card-content">
+                  <span className="bento-label"><span>Amity University</span></span>
+                  <p className="bento-desc"><span>Global educational partner for multi-disciplinary creative growth.</span></p>
+                </div>
+              </div>
+              <div className="bento-card">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop')" }} />
+                <div className="bento-card-content">
+                  <span className="bento-label"><span>JOCC</span></span>
+                  <p className="bento-desc"><span>Jharkhand Open Coffee Club — a vibrant community for entrepreneurs.</span></p>
+                </div>
+              </div>
+              <div className="bento-card">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1525921429624-479b6a29d840?q=80&w=800&auto=format&fit=crop')" }} />
+                <div className="bento-card-content">
+                  <span className="bento-label"><span>The Circle</span></span>
+                  <p className="bento-desc"><span>Community Club for hosting open mics, standups, Live Shows and more.</span></p>
+                </div>
+              </div>
+              <div className="bento-card">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1449247704737-59c72023b2b2?q=80&w=800&auto=format&fit=crop')" }} />
+                <div className="bento-card-content">
+                  <span className="bento-label"><span>Cyclist.Cafe</span></span>
+                  <p className="bento-desc"><span>Coffee cafe for Ranchi's vibrant cyclist community and entrepreneurship building.</span></p>
+                </div>
+              </div>
+              <div className="bento-card">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200&auto=format&fit=crop')" }} />
+                <div className="bento-card-content">
+                  <span className="bento-label"><span>Better Planet Together</span></span>
+                  <p className="bento-desc"><span>Collective pledge towards sustainability and climate consciousness.</span></p>
+                </div>
+              </div>
+            </div>
+            <div className="bento-cta-row">
+              <a href="#participate" className="collective-cta">Enter the Collective &nbsp;→</a>
+            </div>
+          </div>
+
         </div>
+
+
       </section>
+
+
+      {/* Projects moved to /projects page */}
 
       {/* ============================================================
           FOOTER
