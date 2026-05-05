@@ -461,7 +461,7 @@ export default function Home() {
                 <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/CyclistCafe.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>Cyclist.Cafe</span></span>
-                  <p className="bento-desc"><span>Coffee cafe for Ranchi's vibrant cyclist community and entrepreneurship building.</span></p>
+                  <p className="bento-desc"><span>Coffee cafe for Ranchi&apos;s vibrant cyclist community and entrepreneurship building.</span></p>
                 </div>
               </div>
               <div className="bento-card">
