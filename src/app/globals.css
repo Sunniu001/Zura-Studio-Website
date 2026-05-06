@@ -2206,8 +2206,8 @@ button {
 }
 
 .architect-portrait-wrap {
-  width: 380px;
-  aspect-ratio: 1 / 1;
+  width: 260px;
+  aspect-ratio: 2 / 3;
   overflow: hidden;
   background: var(--fg);
   border: 12px solid var(--bg); /* Creates the polaroid border using background color */
@@ -2218,13 +2218,11 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1);
   transition: transform 0.6s ease;
 }
 
 .architect-card:hover .architect-portrait {
   transform: scale(1.03);
-  filter: grayscale(0);
 }
 
 .architect-info {

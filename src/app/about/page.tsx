@@ -14,12 +14,12 @@ const NAV_LINKS = [
 const TEAM = [
   { name: "Abhishek Sagar", role: "Founder and Creative Technologist", img: "/team/Abhishek.jpg" },
   { name: "Sunniy Khan", role: "Co-Founder and CG Generalist", img: "/team/Sunniy.jpg" },
+  { name: "Elisha Swer", role: "3d artist", img: "/team/Elisha.JPG" },
   { name: "Mohit Raj", role: "Video Producer", img: "/team/Mohit.jpg" },
   { name: "Hamee", role: "HR Lead", img: "/team/Hamee.webp" },
   { name: "Suraj Gupta", role: "Full Stack Developer", img: "/team/Suraj.jpg" },
   { name: "Neha Mahto", role: "Social Media Manager", img: "/team/Neha.jpg" },
-  { name: "Nitin Jiwal", role: "Project Manager (Event Sales)", img: "/team/Nitin.jpg" },
-  { name: "Elisha Swer", role: "3d artist", img: "/team/Elisha.JPG" }
+  { name: "Nitin Jiwal", role: "Project Manager (Event Sales)", img: "/team/Nitin.jpg" }
 ];
 
 export default function AboutPage() {
