@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
 
 /* ================================================================
    DATA
@@ -102,36 +103,7 @@ export default function Home() {
           aria-hidden="true"
         />
 
-        {/* NAV */}
-        <nav className="hero-nav">
-          <div className="hero-logo">ZURA STUDIO</div>
-
-          <div className="hero-nav-links">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={link.active ? "active" : ""}
-                {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          <div className="hero-nav-actions">
-            <button
-              className="theme-toggle-minimal"
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              aria-label="Toggle theme"
-            >
-              {theme === "light" ? "☾" : "☀"}
-            </button>
-            <a href="/contact" className="hero-contact-btn">
-              CONTACT
-            </a>
-          </div>
-        </nav>
+        <Navbar activePath="/" theme={theme} setTheme={setTheme} />
 
         {/* HEADLINE + CTAs */}
         <div className="hero-body">

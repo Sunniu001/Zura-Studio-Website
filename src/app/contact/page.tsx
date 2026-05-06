@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar";
 
 const NAV_LINKS: Array<{ label: string; href: string; active?: boolean; external?: boolean }> = [
   { label: "HOME", href: "/" },
@@ -37,36 +38,7 @@ export default function ContactPage() {
 
   return (
     <main className="projects-page contact-page-wrapper">
-      {/* NAV */}
-      <nav className="hero-nav">
-        <div className="hero-logo">ZURA STUDIO</div>
-
-        <div className="hero-nav-links">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={link.active ? "active" : ""}
-              {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        <div className="hero-nav-actions">
-          <button
-            className="theme-toggle-minimal"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? "☾" : "☀"}
-          </button>
-          <a href="/contact" className="hero-contact-btn active">
-            CONTACT
-          </a>
-        </div>
-      </nav>
+      <Navbar activePath="/contact" theme={theme} setTheme={setTheme} />
 
       {/* MAP */}
       <section className="contact-map-section">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Navbar from "../../components/Navbar";
 
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
@@ -13,11 +14,11 @@ const NAV_LINKS = [
 const TEAM = [
   { name: "Abhishek Sagar", role: "Founder and Creative Technologist", img: "/team/Abhishek.jpg" },
   { name: "Sunniy Khan", role: "Co-Founder and CG Generalist", img: "/team/Sunniy.jpg" },
-  { name: "Mohit Raj", role: "Video Producer", img: "/team/Mohit.jpeg" },
+  { name: "Mohit Raj", role: "Video Producer", img: "/team/Mohit.jpg" },
   { name: "Hamee", role: "HR Lead", img: "/team/Hamee.webp" },
-  { name: "Suraj Gupta", role: "Full Stack Developer", img: "/team/Suraj.jpeg" },
-  { name: "Neha Mahto", role: "Social Media Manager", img: "/team/Neha.webp" },
-  { name: "Nitin Jiwal", role: "Project Manager (Event Sales)", img: "/team/Nitin.png" },
+  { name: "Suraj Gupta", role: "Full Stack Developer", img: "/team/Suraj.jpg" },
+  { name: "Neha Mahto", role: "Social Media Manager", img: "/team/Neha.jpg" },
+  { name: "Nitin Jiwal", role: "Project Manager (Event Sales)", img: "/team/Nitin.jpg" },
   { name: "Elisha Swer", role: "3d artist", img: "/team/Elisha.JPG" }
 ];
 
@@ -36,36 +37,7 @@ export default function AboutPage() {
 
   return (
     <main className="about-page">
-      {/* NAV */}
-      <nav className="hero-nav">
-        <div className="hero-logo">ZURA STUDIO</div>
-
-        <div className="hero-nav-links">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={link.active ? "active" : ""}
-              {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        <div className="hero-nav-actions">
-          <button
-            className="theme-toggle-minimal"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? "☾" : "☀"}
-          </button>
-          <a href="/contact" className="hero-contact-btn">
-            CONTACT
-          </a>
-        </div>
-      </nav>
+      <Navbar activePath="/about" theme={theme} setTheme={setTheme} />
 
       {/* SECTION 1 — HERO */}
       <section className="about-hero-new">

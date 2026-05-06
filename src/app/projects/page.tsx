@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Navbar from "../../components/Navbar";
 
 const projects = [
   // Zura Originals
@@ -661,36 +662,7 @@ export default function ProjectsPage() {
 
   return (
     <main className="projects-page">
-      {/* NAV */}
-      <nav className="hero-nav">
-        <div className="hero-logo">ZURA STUDIO</div>
-
-        <div className="hero-nav-links">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={link.active ? "active" : ""}
-              {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        <div className="hero-nav-actions">
-          <button
-            className="theme-toggle-minimal"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? "☾" : "☀"}
-          </button>
-          <a href="/contact" className="hero-contact-btn">
-            CONTACT
-          </a>
-        </div>
-      </nav>
+      <Navbar activePath="/projects" theme={theme} setTheme={setTheme} />
 
       <section className="projects-section" style={{ paddingTop: '4rem', background: 'var(--bg)', color: 'var(--fg)' }}>
         <div className="culture-header" style={{ marginBottom: '4rem' }}>
