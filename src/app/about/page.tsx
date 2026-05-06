@@ -81,15 +81,6 @@ const TEAM = [
     socials: {
       linkedin: "https://www.linkedin.com/in/neha-mahto-454172245/"
     }
-  },
-  {
-    name: "Nitin Jiwal",
-    role: "Project Manager (Event Sales)",
-    img: "/team/Nitin.jpg",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/nitin-jiwal/",
-      instagram: "https://www.instagram.com/jiwalnj/"
-    }
   }
 ];
 
