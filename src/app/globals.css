@@ -1325,14 +1325,41 @@ button {
   background-size: cover;
   background-position: center;
   transition: transform 1s ease, filter 0.5s ease, opacity 0.5s ease;
-  filter: grayscale(1); /* Removed static brightness */
+  filter: grayscale(0); /* Colored by default as requested */
   opacity: var(--image-opacity);
 }
 
 .bento-card:hover .bento-card-bg {
   transform: scale(1.04);
-  filter: grayscale(0);
+  filter: grayscale(1) brightness(0.7); /* Grayscale/darkened on hover */
   opacity: 1;
+}
+
+/* Card logo container, centered, hidden by default */
+.bento-card-logo {
+  position: absolute;
+  top: 50%; /* Position perfectly centered vertically */
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 180px; /* Made bigger as requested */
+  height: 180px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bento-card:hover .bento-card-logo {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.bento-card--has-logo:hover .bento-card-bg {
+  filter: grayscale(1) blur(4px) brightness(0.3); /* Fully grayscale and darkened on hover to make logo pop */
 }
 
 .bento-card::after {
@@ -1351,6 +1378,12 @@ button {
   left: 1.4rem;
   z-index: 2;
   pointer-events: none;
+  transition: opacity 0.4s ease;
+  width: auto;
+}
+
+.bento-card--has-logo:hover .bento-card-content {
+  opacity: 0; /* Fade out all text completely on hover to let the logo shine */
 }
 
 .bento-label {
@@ -1376,8 +1409,14 @@ button {
   color: var(--muted);
   font-weight: 400;
   letter-spacing: 0.05em;
-  max-width: 200px;
+  max-width: 100%; /* No right-side padding or artificial width restrictions */
   line-height: 1.8; /* Increased slightly for highlight breathing room */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.bento-card:hover .bento-desc {
+  opacity: 0;
+  transform: translateY(8px);
 }
 
 .bento-desc span {

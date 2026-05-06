@@ -320,15 +320,17 @@ export default function Home() {
                 </div>
               </div>
               <div className="bento-right">
-                <div className="bento-card">
-                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=800&auto=format&fit=crop')" }} />
+                <a href="https://www.facebook.com/jftaranchi/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/JFTA_wide.webp')" }} />
+                  <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/JFTA_Logo.webp')" }} />
                   <div className="bento-card-content">
                     <span className="bento-label"><span>Jharkhand Film Academy</span></span>
                     <p className="bento-desc"><span>Nurturing the next generation of cinematic storytellers and performers.</span></p>
                   </div>
-                </div>
-                <div className="bento-card">
-                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop')" }} />
+                </a>
+                <div className="bento-card bento-card--has-logo">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/JC_Group.webp')" }} />
+                  <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/JC_Logo.webp')" }} />
                   <div className="bento-card-content">
                     <span className="bento-label"><span>Jharkhand Creative</span></span>
                     <p className="bento-desc"><span>A collaborative hub for regional artists and creative practitioners.</span></p>
@@ -345,45 +347,50 @@ export default function Home() {
           <div className={`culture-panel ${cultureTab === "partners" ? "active" : ""}`}>
             <div className="bento-grid">
               <div className="bento-left">
-                <div className="bento-card bento-fill">
-                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1200&auto=format&fit=crop')" }} />
+                <a href="https://meratv.in/" target="_blank" rel="noopener noreferrer" className="bento-card bento-fill bento-card--has-logo">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/MeraTV.jpg')" }} />
+                  <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/Mera TV Logo.png')" }} />
                   <div className="bento-card-content">
                     <span className="bento-label"><span>Mera TV</span></span>
                     <p className="bento-desc"><span>Emerging Indian OTT platform focusing on hyper-local regional content.</span></p>
                   </div>
-                </div>
+                </a>
               </div>
               <div className="bento-right">
-                <div className="bento-card">
-                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop')" }} />
+                <a href="https://theroguepixxel.com/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/TRP.jpg')" }} />
+                  <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/TRP Logo.png')" }} />
                   <div className="bento-card-content">
                     <span className="bento-label"><span>The Rogue Pixxel</span></span>
                     <p className="bento-desc"><span>Core technology partner specializing in real-time digital architecture.</span></p>
                   </div>
-                </div>
-                <div className="bento-card">
+                </a>
+                <a href="https://www.youtube.com/@MaxfoxStudio" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
                   <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/Maxfox.png')" }} />
+                  <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/MaxFox Logo.png')" }} />
                   <div className="bento-card-content">
                     <span className="bento-label"><span>Maxfox Studios</span></span>
                     <p className="bento-desc"><span>An indie studio run by Mohit Raj.</span></p>
                   </div>
-                </div>
+                </a>
               </div>
               <div className="bento-panoramic">
-                <div className="bento-card">
-                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop')" }} />
+                <a href="https://targetevents.co.in/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/Target Events.jpg')" }} />
+                  <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/Target Events Logo.png')" }} />
                   <div className="bento-card-content">
                     <span className="bento-label"><span>Target Events</span></span>
                     <p className="bento-desc"><span>Specialized event management and large-scale live production partner.</span></p>
                   </div>
-                </div>
-                <div className="bento-card">
-                  <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop')" }} />
+                </a>
+                <a href="https://www.instagram.com/tribe_tree_official/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                  <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/Tribe Tree.jpg')" }} />
+                  <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/Tribe Tree Logo.png')" }} />
                   <div className="bento-card-content">
                     <span className="bento-label"><span>Tribe Tree</span></span>
                     <p className="bento-desc"><span>Sustainability-focused clothing, textile, and handicraft partner.</span></p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
             <div className="bento-cta-row">
@@ -394,55 +401,62 @@ export default function Home() {
           {/* COMMUNITY */}
           <div className={`culture-panel ${cultureTab === "collective" ? "active" : ""}`}>
             <div className="community-grid">
-              <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop')" }} />
+              <a href="https://bitmesra.ac.in/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/BIT.jpg')" }} />
+                <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/BIT Logo.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>BIT Mesra</span></span>
                   <p className="bento-desc"><span>Premier University partner for academic and research collaboration.</span></p>
                 </div>
-              </div>
-              <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/ArkaJain.png')" }} />
+              </a>
+              <a href="https://arkajainuniversity.ac.in/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/Arka Jain.jpg')" }} />
+                <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/Arka Logo.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>Arka Jain</span></span>
                   <p className="bento-desc"><span>College partner fostering local talent and technical education.</span></p>
                 </div>
-              </div>
-              <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop')" }} />
+              </a>
+              <a href="https://ranchi.amity.edu/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/Amity.jpg')" }} />
+                <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/Amity Logo.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>Amity University</span></span>
                   <p className="bento-desc"><span>Global educational partner for multi-disciplinary creative growth.</span></p>
                 </div>
-              </div>
-              <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop')" }} />
+              </a>
+              <a href="https://flocard.app/FC/JharkhandOpenCoffeeClubJOCC" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/JOCC.jpg')" }} />
+                <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/JOCC Logo.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>JOCC</span></span>
                   <p className="bento-desc"><span>Jharkhand Open Coffee Club — a vibrant community for entrepreneurs.</span></p>
                 </div>
-              </div>
-              <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/TheCircle.png')" }} />
+              </a>
+              <a href="https://www.instagram.com/thecircle_ranchi/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/The Circle.jpg')" }} />
+                <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/Circle Cafe Logo.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>The Circle</span></span>
                   <p className="bento-desc"><span>Community Club for hosting open mics, standups, Live Shows and more.</span></p>
                 </div>
-              </div>
-              <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/CyclistCafe.png')" }} />
+              </a>
+              <a href="https://cyclist.cafe/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/Cyclist Cafe.jpg')" }} />
+                <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/Cyclist Cafe Logo.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>Cyclist.Cafe</span></span>
                   <p className="bento-desc"><span>Coffee cafe for Ranchi&apos;s vibrant cyclist community and entrepreneurship building.</span></p>
                 </div>
-              </div>
-              <div className="bento-card">
-                <div className="bento-card-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200&auto=format&fit=crop')" }} />
+              </a>
+              <a href="https://betterplanettogether.org/" target="_blank" rel="noopener noreferrer" className="bento-card bento-card--has-logo">
+                <div className="bento-card-bg" style={{ backgroundImage: "url('/Images/Better Planet Together.jpg')" }} />
+                <div className="bento-card-logo" style={{ backgroundImage: "url('/Images/Better Planet Together Logo.png')" }} />
                 <div className="bento-card-content">
                   <span className="bento-label"><span>Better Planet Together</span></span>
                   <p className="bento-desc"><span>Collective pledge towards sustainability and climate consciousness.</span></p>
                 </div>
-              </div>
+              </a>
             </div>
             <div className="bento-cta-row">
               <a href="#participate" className="collective-cta">Enter the Collective &nbsp;→</a>
