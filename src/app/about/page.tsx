@@ -12,15 +12,85 @@ const NAV_LINKS = [
 ];
 
 const TEAM = [
-  { name: "Abhishek Sagar", role: "Founder and Creative Technologist", img: "/team/Abhishek.jpg" },
-  { name: "Sunniy Khan", role: "Co-Founder and CG Generalist", img: "/team/Sunniy.jpg" },
-  { name: "Elisha Swer", role: "3d artist", img: "/team/Elisha.jpg" },
-  { name: "Mohit Raj", role: "Video Producer", img: "/team/Mohit.jpg" },
-  { name: "Anandini RoyChoudhary", role: "HR Lead", img: "/team/Anandini.jpg" },
-  { name: "Suraj Gupta", role: "Full Stack Developer", img: "/team/Suraj.jpg" },
-  { name: "Sawan Chowhan", role: "Lead Game Developer", img: "/team/Sawan.jpg" },
-  { name: "Neha Mahto", role: "Social Media Manager", img: "/team/Neha.jpg" },
-  { name: "Nitin Jiwal", role: "Project Manager (Event Sales)", img: "/team/Nitin.jpg" }
+  {
+    name: "Abhishek Sagar",
+    role: "Founder and Creative Technologist",
+    img: "/team/Abhishek.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/asssagar/",
+      twitter: "https://x.com/neustarZura",
+      instagram: "https://www.instagram.com/neutrino_stardust/"
+    }
+  },
+  {
+    name: "Sunniy Khan",
+    role: "Co-Founder and CG Generalist",
+    img: "/team/Sunniy.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/sunniy-khan-455b7b16a/",
+      twitter: "https://x.com/thatBeardedBat",
+      instagram: "https://www.instagram.com/baldsurdist"
+    }
+  },
+  {
+    name: "Elisha Swer",
+    role: "3d artist",
+    img: "/team/Elisha.jpg",
+    socials: {
+      twitter: "https://x.com/elishaswer",
+      instagram: "https://www.instagram.com/elishaswer.fbx/"
+    }
+  },
+  {
+    name: "Mohit Raj",
+    role: "Video Producer",
+    img: "/team/Mohit.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/mohit-raj-773b9224b/",
+      instagram: "https://www.instagram.com/iam_mohitraj_/"
+    }
+  },
+  {
+    name: "Anandini RoyChoudhary",
+    role: "HR Lead",
+    img: "/team/Anandini.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/anandiniroychoudhury/"
+    }
+  },
+  {
+    name: "Suraj Gupta",
+    role: "Full Stack Developer",
+    img: "/team/Suraj.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/suraj-kumar-058191222/"
+    }
+  },
+  {
+    name: "Sawan Chowhan",
+    role: "Lead Game Developer",
+    img: "/team/Sawan.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/sawan-chouahn-zuraverse-43008b194"
+    }
+  },
+  {
+    name: "Neha Mahto",
+    role: "Social Media Manager",
+    img: "/team/Neha.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/neha-mahto-454172245/"
+    }
+  },
+  {
+    name: "Nitin Jiwal",
+    role: "Project Manager (Event Sales)",
+    img: "/team/Nitin.jpg",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/nitin-jiwal/",
+      instagram: "https://www.instagram.com/jiwalnj/"
+    }
+  }
 ];
 
 export default function AboutPage() {
@@ -118,6 +188,25 @@ export default function AboutPage() {
                   <div className="architect-card" key={i}>
                     <div className="architect-portrait-wrap">
                       <img src={member.img} alt={member.name} className="architect-portrait" />
+                      {member.socials && (
+                        <div className="architect-socials">
+                          {member.socials.linkedin && (
+                            <a href={member.socials.linkedin} target="_blank" rel="noreferrer" className="architect-social-link" aria-label="LinkedIn">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                          )}
+                          {member.socials.twitter && (
+                            <a href={member.socials.twitter} target="_blank" rel="noreferrer" className="architect-social-link" aria-label="Twitter">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                          )}
+                          {member.socials.instagram && (
+                            <a href={member.socials.instagram} target="_blank" rel="noreferrer" className="architect-social-link" aria-label="Instagram">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            </a>
+                          )}
+                        </div>
+                      )}
                     </div>
                     <div className="architect-info">
                       <h3 className="architect-name">{member.name}</h3>
