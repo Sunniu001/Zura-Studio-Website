@@ -1831,6 +1831,7 @@ button {
     align-items: flex-start;
     padding: 1.5rem;
   }
+}
 
 /* --- HAMBURGER & MOBILE MENU OVERLAY --- */
 .hamburger-btn {
