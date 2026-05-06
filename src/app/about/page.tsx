@@ -11,13 +11,14 @@ const NAV_LINKS = [
 ];
 
 const TEAM = [
-  { name: "Abhishek Sagar", role: "Founder and Creative Technologist", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" },
-  { name: "Sunniy Khan", role: "Co-Founder and CG Generalist", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop" },
-  { name: "Mohit Raj", role: "Video Producer", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" },
-  { name: "Hamee", role: "HR Lead", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" },
-  { name: "Suraj Gupta", role: "Full Stack Developer", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" },
-  { name: "Neha Mahto", role: "Social Media Manager", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" },
-  { name: "Nitin Jiwal", role: "Project Manager (Event Sales)", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop" }
+  { name: "Abhishek Sagar", role: "Founder and Creative Technologist", img: "/team/Abhishek.jpg" },
+  { name: "Sunniy Khan", role: "Co-Founder and CG Generalist", img: "/team/Sunniy.jpg" },
+  { name: "Mohit Raj", role: "Video Producer", img: "/team/Mohit.jpeg" },
+  { name: "Hamee", role: "HR Lead", img: "/team/Hamee.webp" },
+  { name: "Suraj Gupta", role: "Full Stack Developer", img: "/team/Suraj.jpeg" },
+  { name: "Neha Mahto", role: "Social Media Manager", img: "/team/Neha.webp" },
+  { name: "Nitin Jiwal", role: "Project Manager (Event Sales)", img: "/team/Nitin.png" },
+  { name: "Elisha Swer", role: "3d artist", img: "/team/Elisha.JPG" }
 ];
 
 export default function AboutPage() {
@@ -70,7 +71,7 @@ export default function AboutPage() {
       <section className="about-hero-new">
         <div className="about-hero-new-content">
           <h1 className="about-hero-title">
-            We Build Worlds,<br/>Not Just Content
+            We Build Worlds,<br />Not Just Content
           </h1>
           <p className="about-hero-subtext">
             Zura Studio develops original narrative universes across film, interactive experiences, and culture.
