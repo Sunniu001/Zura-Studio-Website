@@ -769,7 +769,7 @@ button {
   margin: 0 auto;
   border-radius: 8px;
   overflow: hidden;
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 16 / 10;
   background: var(--card-bg);
 }
 
@@ -959,6 +959,10 @@ button {
 @media (max-width: 900px) {
   .ip-section {
     padding: 4rem 1.5rem;
+  }
+
+  .ip-slider {
+    aspect-ratio: 4 / 3;
   }
 
   .ip-slide-content {
@@ -1394,16 +1398,6 @@ button {
 
 @media (max-width: 900px) {
   .bento-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .bento-card--pan {
-    aspect-ratio: 16 / 6;
-  }
-}
-
-@media (max-width: 600px) {
-  .bento-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1414,13 +1408,10 @@ button {
 
   .bento-panoramic {
     grid-row: 3;
+    flex-direction: column;
   }
 
-  .bento-card--tall {
-    aspect-ratio: 4 / 3;
-  }
-
-  .bento-card--pan {
+  .bento-left .bento-card {
     aspect-ratio: 16 / 9;
   }
 }
@@ -1810,6 +1801,10 @@ button {
     display: none;
   }
 
+  .hero-nav-actions .hero-contact-btn {
+    display: none;
+  }
+
   .hero-body {
     padding: 0 1.2rem 2.5rem;
   }
@@ -1824,6 +1819,41 @@ button {
 
   .projects-nav {
     padding: 0 1rem;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+  
+  .projects-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Culture Tabs scrolling on mobile */
+  .culture-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    scrollbar-width: none;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .culture-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .culture-tab {
+    flex-shrink: 0;
+  }
+
+  /* Prevent first bento card from collapsing on mobile */
+  .bento-left .bento-card {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Stack bento panoramic bottom cards vertically on mobile */
+  .bento-panoramic {
+    flex-direction: column;
   }
 
   .site-footer {
