@@ -3,7 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Zura Studio | Creative Agency",
-  description: "Zura Studio - We build creative and amazing digital experiences.",
+  description: "Zura Studio - We create emotion driven by creativity and innovation.",
+   icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
